@@ -1,8 +1,8 @@
 package com.server;
 
-import com.stubs.AssignedPersonHandler;
-import com.stubs.OrderstateHandler;
-import com.stubs.OriginationStateHandler;
+import com.response.handlers.AddressHandler;
+import com.response.handlers.OtherServiceHandler;
+import com.response.handlers.PersonalInformationHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -15,19 +15,19 @@ public class MainServer {
 
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
 
-        server.createContext("/dummy-server/orders/1/states", new OrderstateHandler(1));
-        server.createContext("/dummy-server/orders/2/states", new OrderstateHandler(2));
-        server.createContext("/dummy-server/orders/3/states", new OrderstateHandler(3));
-        server.createContext("/dummy-server/orders/4/states", new OrderstateHandler(4));
-        server.createContext("/dummy-server/orders/5/states", new OrderstateHandler(5));
+        server.createContext("/dummy-server/user/1/address", new AddressHandler(1));
+        server.createContext("/dummy-server/user/2/address", new AddressHandler(2));
+        server.createContext("/dummy-server/user/3/address", new AddressHandler(3));
+        server.createContext("/dummy-server/user/4/address", new AddressHandler(4));
+        server.createContext("/dummy-server/user/5/address", new AddressHandler(5));
 
-        server.createContext("/dummy-server/orders/1/assigned-persons", new AssignedPersonHandler());
-        server.createContext("/dummy-server/orders/2/assigned-persons", new AssignedPersonHandler());
-        server.createContext("/dummy-server/orders/3/assigned-persons", new AssignedPersonHandler());
-        server.createContext("/dummy-server/orders/4/assigned-persons", new AssignedPersonHandler());
-        server.createContext("/dummy-server/orders/5/assigned-persons", new AssignedPersonHandler());
+        server.createContext("/dummy-server/user/1/personal-information", new PersonalInformationHandler());
+        server.createContext("/dummy-server/user/2/personal-information", new PersonalInformationHandler());
+        server.createContext("/dummy-server/user/3/personal-information", new PersonalInformationHandler());
+        server.createContext("/dummy-server/user/4/personal-information", new PersonalInformationHandler());
+        server.createContext("/dummy-server/user/5/personal-information", new PersonalInformationHandler());
 
-        server.createContext("/dummy-server/api/originationservice", new OriginationStateHandler());
+        server.createContext("/dummy-server/api/otherService", new OtherServiceHandler());
 
         server.setExecutor(null);
         server.start();

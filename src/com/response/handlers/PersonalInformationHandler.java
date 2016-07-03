@@ -20,7 +20,7 @@ public class PersonalInformationHandler implements HttpHandler {
         System.out.println(msg);
         System.out.println(msg.length());
         Headers responseHeaders = httpExchange.getResponseHeaders();
-        responseHeaders.set("Content-Type", "application/vnd.csp-anz.com+json;version=1.0;charset=UTF-8");
+        responseHeaders.set("Content-Type", "application/json;charset=UTF-8");
         httpExchange.sendResponseHeaders(200, msg.length());
         OutputStream os = httpExchange.getResponseBody();
         os.write(msg.getBytes());

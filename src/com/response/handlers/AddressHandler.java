@@ -12,20 +12,22 @@ import java.util.Scanner;
 
 public class AddressHandler implements HttpHandler {
 
-    private int scenario;
+    private int employeeId;
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private static final String HEADER_ALLOW = "Allow";
     private static final String HEADER_CONTENT_TYPE = "Content-Type";
 
-    public AddressHandler(int scenario) {
-        this.scenario = scenario;
+    public AddressHandler(int employeeId) {
+        this.employeeId = employeeId;
     }
+
+
 
     @Override
     public void handle(HttpExchange httpExchange) {
         try {
             System.out.println("orderState");
-            String fileName = "/com/responses/Orderstate_response_" + scenario + ".json";
+            String fileName = "/com/responses/Address_response_" + employeeId + ".json";
             System.out.println(fileName);
             InputStream inp = Thread.currentThread().getClass().getResourceAsStream(fileName);
             Scanner s = new Scanner(inp);
