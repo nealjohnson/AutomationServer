@@ -13,7 +13,7 @@ public class PersonalInformationHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
 
-        InputStream inp = Thread.currentThread().getClass().getResourceAsStream("/com/responses/AssignedPerson_response.json");
+        InputStream inp = Thread.currentThread().getClass().getResourceAsStream("/com/responses/personal-information_response.json");
 
         java.util.Scanner s = new java.util.Scanner(inp).useDelimiter("\\A");
         String msg = s.hasNext() ? s.next() : "";
