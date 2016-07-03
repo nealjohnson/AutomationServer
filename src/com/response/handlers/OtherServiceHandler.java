@@ -12,7 +12,7 @@ public class OtherServiceHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
 
-        System.out.println("OriginationStateHandler");
+        System.out.println("OtherServiceHandler");
 
         String msg = "[\n" +
                 "  {\n" +
